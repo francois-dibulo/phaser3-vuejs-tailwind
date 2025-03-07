@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// This is the View for the game. It will be rendered in an iframe.
 import { startGame } from '@/libs/game/main';
 import { onMounted, onUnmounted } from 'vue';
 

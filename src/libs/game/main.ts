@@ -1,3 +1,4 @@
+// This is were you define your Phaser3 game. All the logic is in the scenes.
 import * as Phaser from 'phaser';
 import MainScene from "./scenes/MainScene.ts";
 
