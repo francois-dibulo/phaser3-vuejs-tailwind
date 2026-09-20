@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // This is the View for the game. It will be rendered in an iframe.
-import { startGame } from '@/libs/game/main';
+import { startGame, type GameWithCustom } from '@/libs/game/main';
 import { onMounted, onUnmounted } from 'vue';
 
-let gameInstance: Phaser.Game | null = null;
+let gameInstance: GameWithCustom | null = null;
 
 onMounted(() => {
   gameInstance = startGame();
@@ -16,7 +16,7 @@ onUnmounted(() => {
 
 <template>
   <div class="w-full h-full min-h-screen bg-neutral-900">
-    <!-- Your Phaser3 game will be rendered here -->
+    <!-- Your Phaser 4 game will be rendered here -->
     <div id="game-parent" class="w-full h-full min-h-screen flex flex-col items-center justify-center"></div>
   </div>
 </template>

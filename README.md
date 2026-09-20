@@ -1,6 +1,8 @@
-# phaser3-vuejs - iframe solution
+> UPDATE: It uses now Phaser 4
 
-This template should help get you started developing with Phaser 3.9.0 and Vue 3 in Vite.
+# phaser4-vuejs - iframe solution
+
+This template should help get you started developing with Phaser 4 and Vue 3 in Vite.
 
 ## What?
 

@@ -1,24 +1,24 @@
-// This is were you define your Phaser3 game. All the logic is in the scenes.
+// This is where you define your Phaser 4 game. All the logic is in the scenes.
 import * as Phaser from 'phaser';
 import MainScene from "./scenes/MainScene.ts";
 
-export function startGame(opts?: any) {
-  let width = Math.min(540, window.innerWidth);
-  let height = window.innerHeight;
-  let scaleMode = Phaser.Scale.FIT;
-  let renderMode = Phaser.AUTO;
+export type GameWithCustom = Phaser.Game & { custom: Record<string, unknown> };
 
-  const config = {
+export function startGame(opts?: Record<string, unknown>): GameWithCustom {
+  const width = Math.min(540, window.innerWidth);
+  const height = window.innerHeight;
+
+  const config: Phaser.Types.Core.GameConfig = {
     parent: 'game-parent',
-    type: renderMode,
+    type: Phaser.AUTO,
     antialias: true,
     preserveDrawingBuffer: true,
-    width: width,
-    height: height,
+    width,
+    height,
     autoFocus: true,
     transparent: false,
     scale: {
-      mode: scaleMode,
+      mode: Phaser.Scale.FIT,
       parent: 'game-parent',
     },
     scene: [
@@ -26,9 +26,8 @@ export function startGame(opts?: any) {
     ],
   };
 
-  const game = new Phaser.Game(config);
-  // Add custom properties to the game instance
-  game.custom = Object.assign(opts || {});
+  const game = new Phaser.Game(config) as GameWithCustom;
+  game.custom = { ...(opts || {}) };
 
   return game;
 }
